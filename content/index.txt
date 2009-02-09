@@ -1,0 +1,24 @@
+---
+title:       Home
+created_at:  2008-08-02 14:06:40.000000 -06:00
+filter:
+  - erb
+---
+<p>As your Mayor, I have drawn on my years of business and financial management experience to ensure we make positive and productive changes for our City.</p>
+
+<p>It is an honor to serve as your Mayor. During the past years, the City has seen a great deal accomplished. I have been committed to balancing the City’s budget, protecting our neighborhoods by putting more police officers on our streets, easing traffic with road improvements and funding new parks for the future of our city, our children.</p>
+
+<p>Our City has become a great place to live, work and play, but there is much work yet to be done.</p>
+
+<p>With the opportunity to continue serving as your Mayor, I will continue to work hard to increase public safety, improve our streets and highways, enhance City services and to create business and employment opportunities in our community that will benefit all of our residents.</p>
+
+<p>It is important that I continue to serve well toward our goal of building a community that we can all be proud to call home.</p>
+
+<p align="right">Daryl Busch</p>
+
+<hr />
+
+<p align="center"><img src="/images/friends.jpg" /></p>
+
+<p align="center"><a href="/images/yard-sign.pdf">Print Daryl Busch Yard Sign</a></p>
+
