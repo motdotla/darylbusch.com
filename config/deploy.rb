@@ -1,27 +1,28 @@
-set :runner, "scottmotte"
-set :use_sudo, false
+# =============================================================================
+# ROLES
+# =============================================================================
+role :app, "174.142.75.247"
+role :web, "174.142.75.247"
+role :db,  "174.142.75.247", :primary => true
  
 # =============================================================================
-# CUSTOM OPTIONS
+# SETUP
 # =============================================================================
-set :user, "scottmotte"
+set :user, 'scottmotte'
 set :application, "darylbusch.com"
-set :domain, "darylbusch.com"
- 
-role :web, domain
-role :app, domain
-role :db,  domain, :primary => true
- 
+
 # =============================================================================
 # DEPLOY TO
 # =============================================================================
-set :deploy_to, "/home/scottmotte/apps/#{application}"
+set :deploy_to, "/home/scottmotte/apps/darylbusch.com"
+set :scm_verbose, true
+set :use_sudo, false
 
 # # =============================================================================
 # # REPOSITORY
 # # =============================================================================
 set :scm, "git"
-set :repository,  "git@github.com:scottmotte/#{application}.git"
+set :repository,  "git@github.com:scottmotte/darylbusch.com.git"
 set :branch, "master"
 set :deploy_via, :remote_cache
 
@@ -30,14 +31,10 @@ set :deploy_via, :remote_cache
 # =============================================================================
 default_run_options[:pty] = true
 ssh_options[:paranoid] = false
-ssh_options[:keys] = %w(/Users/scottmotte/.ssh/id_rsa)
-ssh_options[:port] = 1984
  
 # =============================================================================
 # RAKE TASKS & OTHER SERVER TASKS
 # =============================================================================
-
-
 namespace :deploy do
   # override Rails related callbacks
   task :finalize_update do
@@ -50,17 +47,10 @@ namespace :deploy do
   task :restart do
   end
   
-  desc 'Restart nginx'
-  task :restart_nginx, :roles => :web do
-    sudo '/etc/init.d/nginx stop'
-    sudo '/etc/init.d/nginx start'
-  end
-  
-  desc "Create symlink to public_html/#{domain}/public"
+  desc "Create symlink to public_html/darylbusch.com/public"
   task :symlinkify do
-    run "rm -rf /home/scottmotte/public_html/#{domain}/public; ln -s #{current_path}/output/ /home/scottmotte/public_html/#{domain}/public"
+    run "rm -rf /home/scottmotte/public_html/darylbusch.com/public; ln -s #{current_path}/output/ /home/scottmotte/public_html/darylbusch.com}/public"
   end
 end
- 
-after "deploy", "deploy:cleanup"
-after "deploy:cleanup", "deploy:symlinkify"
+
+after "deploy", "deploy:cleanup", "deploy:symlinkify"
