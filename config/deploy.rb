@@ -49,7 +49,7 @@ namespace :deploy do
   
   desc "Create symlink to public_html/darylbusch.com/public"
   task :symlinkify do
-    run "rm -rf /home/scottmotte/public_html/darylbusch.com/public; ln -s #{current_path}/output/ /home/scottmotte/public_html/darylbusch.com}/public"
+    run "rm -rf /home/scottmotte/public_html/darylbusch.com/public; ln -s #{current_path}/output/ /home/scottmotte/public_html/darylbusch.com/public"
   end
 end
 
